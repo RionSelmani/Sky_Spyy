@@ -1,0 +1,104 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Weather Detector</title>
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/weather.jpg' %}" rel="icon">
+  <link href="{% static 'assets/img/weather.jpg' %}" rel="apple-touch-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body style="background-color: #222; color: #fff; font-family: 'Arial', sans-serif;">
+  <div class="container">
+    <div class="search-container">
+      <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter location..." name="search" id="input1">
+        <input id="search" type="submit" value="Search">
+      </form>
+    </div>
+
+    <div class="weather-parameters">
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-humidity" data-icon="wi-humidity" style="width:20px;height:20px;color:#00aaff;"></span>
+        <h4 style="color: #00aaff;">Humidity</h4>
+        <p>{{humidity}}%</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-strong-wind" data-icon="wi-strong-wind" style="width:20px;height:20px;color:#777;"></span>
+        <h4 style="color: #777;">Wind</h4>
+        <p>{{speed}} km/h</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-cloudy" data-icon="wi-cloudy" style="width:20px;height:20px;color:#777;"></span>
+        <h4 style="color: #777;">Clouds</h4>
+        <p>{{clouds}}%{{Final}}</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:#ff5555;"></span>
+        <h4 style="color: #ff5555;">Temperature</h4>
+        <p>{{temp}}°C</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:#ff5555;"></span>
+        <h4 style="color: #ff5555;">Feels like</h4>
+        <p>{{feels_like}}°C</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:#ff5555;"></span>
+        <h4 style="color: #ff5555;">Min Temperature</h4>
+        <p>{{min_temp}}°C</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-thermometer" data-icon="wi-thermometer" style="width:20px;height:20px;color:#ff5555;"></span>
+        <h4 style="color: #ff5555;">Max Temperature</h4>
+        <p>{{max_temp}}°C</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify" data-icon="emojione-flag-for-flag-{{search}}" style="width:20px;height:20px;"></span>
+        <h4 style="color: #aaa;">Country Code</h4>
+        <p>{{country_code}}</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify wi-barometer" data-icon="wi-barometer" style="width:35px;height:35px;color:#00aaff;"></span>
+        <h4 style="color: #00aaff;">Pressure</h4>
+        <p>{{pressure}} Bar</p>
+      </div>
+
+      
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify" data-icon="ic:baseline-gps-fixed" data-inline="false" style="color:#00aaff; font-size:20px;"></span>
+        <h4 style="color: #00aaff;">Latitude</h4>
+        <p>{{lat}}</p>
+      </div>
+
+      <div class="weather-parameter" style="background-color: #333; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);">
+        <span class="iconify" data-icon="ic:baseline-gps-fixed" data-inline="false" style="color:#00aaff; font-size:20px;"></span>
+        <h4 style="color: #00aaff;">Longitude</h4>
+        <p>{{lon}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" style="background-color: #111;">
+    <p title="Enes Jashari Website" style="color: #777;">&copy; <b><a id="Enesjashari" href="https://enesjashari.github.io/" style="color: #00aaff;">Author Rion</a></b>. All rights reserved.</p>
+  </div>
+</body>
+</html>
